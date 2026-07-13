@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+:root {
+  --bg-deep: #0F1620;
+  --panel: #161B22;
+  --card: #1E2530;
+  --amber: #D98E3B;
+  --teal: #4F8C82;
+  --text: #EDEAE3;
+  --muted: #8B93A1;
+  --crisis: #B3462C;
+}
+
+@layer base {
+  html, body {
+    font-family: "IBM Plex Sans", sans-serif;
+    background-color: var(--bg-deep);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@utility phone-frame {
+  max-width: 430px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100dvh;
+  position: relative;
+  @media (min-width: 431px) {
+    border-radius: 28px;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-height: calc(100dvh - 40px);
+    max-height: calc(100dvh - 40px);
+    overflow: hidden;
+  }
+}
+
+@layer components {
+  .panel {
+    background-color: var(--panel);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .card {
+    background-color: var(--card);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .btn-amber {
+    background-color: var(--amber);
+    color: #0F1620;
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 14px 24px;
+    transition: all 0.2s ease;
+  }
+
+  .btn-amber:hover {
+    opacity: 0.9;
+  }
+
+  .btn-card {
+    background-color: var(--card);
+    color: var(--text);
+    border-radius: 12px;
+    padding: 14px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.2s ease;
+  }
+
+  .btn-card:hover {
+    border-color: var(--amber);
+  }
+
+  .btn-ghost {
+    color: var(--muted);
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  .btn-ghost:hover {
+    background-color: var(--card);
+    color: var(--text);
+  }
+
+  .nav-icon {
+    color: var(--muted);
+    transition: color 0.15s;
+  }
+
+  .nav-icon.active {
+    color: var(--amber);
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes breathe-pulse {
+    0%, 100% { transform: scale(0.95); opacity: 0.6; }
+    50% { transform: scale(1.05); opacity: 1; }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.4s ease-out;
+  }
+
+  .animate-breathe {
+    animation: breathe-pulse 4s ease-in-out infinite;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
