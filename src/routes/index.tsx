@@ -195,6 +195,10 @@ function HomeScreen({ setScreen }: { setScreen: (s: string) => void }) {
         All tools
       </button>
 
+      <a href="/departments" className="text-center text-xs text-[var(--muted)] underline hover:text-[var(--amber)] pb-1">
+        WatchStand for your agency →
+      </a>
+
       <p className="text-center text-xs text-[var(--muted)] pb-2">Everything stays on your device. No account needed.</p>
     </div>
   );
