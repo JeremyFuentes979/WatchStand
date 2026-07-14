@@ -135,7 +135,7 @@ function HomeScreen({ setScreen }: { setScreen: (s: string) => void }) {
     <div className="flex flex-col px-5 pt-6 pb-4 gap-4 animate-fade-in">
       <div className="flex items-center justify-between mb-1">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">WatchStand</h1>
+          <h1 className="text-2xl font-bold tracking-tight">The Dark Guardian</h1>
           <p className="text-sm text-[var(--muted)] mt-0.5">First responder wellness toolkit</p>
         </div>
         <div className="w-10 h-10 rounded-full bg-[var(--amber)]/10 flex items-center justify-center">
@@ -196,7 +196,7 @@ function HomeScreen({ setScreen }: { setScreen: (s: string) => void }) {
       </button>
 
       <a href="/departments" className="text-center text-xs text-[var(--muted)] underline hover:text-[var(--amber)] pb-1">
-        WatchStand for your agency →
+        The Dark Guardian for your agency →
       </a>
 
       <p className="text-center text-xs text-[var(--muted)] pb-2">Everything stays on your device. No account needed.</p>
@@ -242,7 +242,7 @@ function CrisisScreen({ setScreen }: { setScreen: (s: string) => void }) {
         </a>
       ))}
 
-      <p className="text-center text-xs text-[var(--muted)] pb-2">WatchStand is not a crisis service. These resources are provided for reference.</p>
+      <p className="text-center text-xs text-[var(--muted)] pb-2">The Dark Guardian is not a crisis service. These resources are provided for reference.</p>
     </div>
   );
 }

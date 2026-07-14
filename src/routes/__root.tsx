@@ -13,7 +13,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" },
-      { title: "WatchStand" },
+      { title: "The Dark Guardian" },
       { name: "description", content: "A private, zero-account mental wellness toolkit for first responders." },
       { name: "theme-color", content: "#0F1620" },
     ],
