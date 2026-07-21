@@ -15,6 +15,7 @@ import {
   Brain,
   Search,
 } from "lucide-react";
+import { InstallPrompt } from "~/components/InstallPrompt";
 
 export const Route = createFileRoute("/")({
   component: App,
@@ -143,6 +144,9 @@ function HomeScreen({ setScreen }: { setScreen: (s: string) => void }) {
         </div>
       </div>
 
+      {/* PWA Install prompt — subtle, only appears when installable */}
+      <InstallPrompt />
+
       {/* Crisis banner */}
       <button onClick={() => setScreen("crisis")} className="card rounded-2xl p-4 flex items-center gap-3 border border-[var(--crisis)]/30 text-left">
         <div className="w-11 h-11 rounded-xl bg-[var(--crisis)]/10 flex items-center justify-center shrink-0">
@@ -194,10 +198,6 @@ function HomeScreen({ setScreen }: { setScreen: (s: string) => void }) {
         <Wrench size={16} className="inline mr-2" />
         All tools
       </button>
-
-      <a href="/departments" className="text-center text-xs text-[var(--muted)] underline hover:text-[var(--amber)] pb-1">
-        The Dark Guardian for your agency →
-      </a>
 
       <p className="text-center text-xs text-[var(--muted)] pb-2">Everything stays on your device. No account needed.</p>
     </div>
@@ -580,6 +580,43 @@ function ResourcesScreen({ setScreen }: { setScreen: (s: string) => void }) {
       {filtered.length === 0 && (
         <p className="text-sm text-[var(--muted)] text-center py-8">No results found for "{search}"</p>
       )}
+
+      {/* Agency & CISM links */}
+      <div className="mt-2 pt-4 border-t border-white/5">
+        <p className="text-xs font-semibold text-[var(--muted)] uppercase tracking-wider mb-3">Agencies & CISM</p>
+        <div className="flex flex-col gap-2">
+          <a href="/departments" className="card rounded-xl p-3.5 flex items-center gap-3 text-left hover:border-[var(--amber)]/30">
+            <div className="w-9 h-9 rounded-lg bg-[var(--amber)]/10 flex items-center justify-center shrink-0">
+              <LifeBuoy size={18} className="text-[var(--amber)]" />
+            </div>
+            <div className="flex-1">
+              <p className="font-medium text-sm">For your agency</p>
+              <p className="text-xs text-[var(--muted)]">The Dark Guardian for departments</p>
+            </div>
+            <span className="text-[var(--muted)]">→</span>
+          </a>
+          <a href="/cism-finder" className="card rounded-xl p-3.5 flex items-center gap-3 text-left hover:border-[var(--amber)]/30">
+            <div className="w-9 h-9 rounded-lg bg-[var(--amber)]/10 flex items-center justify-center shrink-0">
+              <Search size={18} className="text-[var(--amber)]" />
+            </div>
+            <div className="flex-1">
+              <p className="font-medium text-sm">Find CISM teams</p>
+              <p className="text-xs text-[var(--muted)]">Search CISM teams near you</p>
+            </div>
+            <span className="text-[var(--muted)]">→</span>
+          </a>
+          <a href="/cism-signup" className="card rounded-xl p-3.5 flex items-center gap-3 text-left hover:border-[var(--amber)]/30">
+            <div className="w-9 h-9 rounded-lg bg-[var(--amber)]/10 flex items-center justify-center shrink-0">
+              <MessageSquareText size={18} className="text-[var(--amber)]" />
+            </div>
+            <div className="flex-1">
+              <p className="font-medium text-sm">CISM membership</p>
+              <p className="text-xs text-[var(--muted)]">Join our CISM network</p>
+            </div>
+            <span className="text-[var(--muted)]">→</span>
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
