@@ -8,6 +8,7 @@ import {
   Phone,
   ChevronLeft,
   MessageSquareText,
+  HeartHandshake,
   Wind,
   Moon,
   RotateCcw,
@@ -602,6 +603,16 @@ function ResourcesScreen({ setScreen }: { setScreen: (s: string) => void }) {
             <div className="flex-1">
               <p className="font-medium text-sm">Find CISM teams</p>
               <p className="text-xs text-[var(--muted)]">Search CISM teams near you</p>
+            </div>
+            <span className="text-[var(--muted)]">→</span>
+          </a>
+          <a href="/cism-teams" className="card rounded-xl p-3.5 flex items-center gap-3 text-left hover:border-[var(--amber)]/30">
+            <div className="w-9 h-9 rounded-lg bg-[var(--amber)]/10 flex items-center justify-center shrink-0">
+              <HeartHandshake size={18} className="text-[var(--amber)]" />
+            </div>
+            <div className="flex-1">
+              <p className="font-medium text-sm">For CISM teams</p>
+              <p className="text-xs text-[var(--muted)]">A tool your team can trust</p>
             </div>
             <span className="text-[var(--muted)]">→</span>
           </a>
