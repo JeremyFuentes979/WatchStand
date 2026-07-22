@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    background: #0F1620;
+    color: #EDEAE3;
+    width: 210mm;
+    height: 297mm;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 8mm 10mm;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, #0F1620 0%, #111A25 100%);
+    position: relative;
+  }
+  
+  /* Top accent bar */
+  .accent-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #D98E3B, #4F8C82);
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 6mm;
+    margin-bottom: 7mm;
+  }
+  
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+  }
+  
+  .logo-icon {
+    width: 12mm;
+    height: 12mm;
+    background: rgba(217,142,59,0.15);
+    border-radius: 3mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7mm;
+    line-height: 1;
+  }
+  
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .logo-name {
+    font-size: 7mm;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    color: #EDEAE3;
+    line-height: 1.1;
+  }
+  
+  .logo-name span {
+    color: #D98E3B;
+  }
+  
+  .logo-tagline {
+    font-size: 3mm;
+    color: #8B8E93;
+    margin-top: 0.5mm;
+    letter-spacing: 0.5px;
+  }
+  
+  .badge {
+    background: rgba(217,142,59,0.12);
+    border: 1px solid rgba(217,142,59,0.25);
+    border-radius: 1.5mm;
+    padding: 1.5mm 3mm;
+    font-size: 3mm;
+    font-weight: 600;
+    color: #D98E3B;
+  }
+  
+  /* Hero */
+  .hero {
+    text-align: center;
+    margin-bottom: 6mm;
+    padding: 3mm 0;
+  }
+  
+  .hero h1 {
+    font-size: 8.5mm;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    margin-bottom: 2.5mm;
+  }
+  
+  .hero h1 span {
+    color: #D98E3B;
+  }
+  
+  .hero p {
+    font-size: 3.5mm;
+    color: #8B8E93;
+    max-width: 160mm;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+  
+  /* Three value pillars */
+  .pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3mm;
+    margin-bottom: 5mm;
+  }
+  
+  .pillar {
+    background: rgba(22, 27, 34, 0.8);
+    border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 2.5mm;
+    padding: 3mm;
+    text-align: center;
+  }
+  
+  .pillar-icon {
+    font-size: 5mm;
+    margin-bottom: 1.5mm;
+  }
+  
+  .pillar h3 {
+    font-size: 3.3mm;
+    font-weight: 600;
+    margin-bottom: 1mm;
+  }
+  
+  .pillar p {
+    font-size: 2.6mm;
+    color: #8B8E93;
+    line-height: 1.4;
+  }
+  
+  /* Features grid */
+  .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5mm;
+    margin-bottom: 5mm;
+  }
+  
+  .feature {
+    background: rgba(30, 37, 48, 0.6);
+    border-radius: 2mm;
+    padding: 2.5mm 3mm;
+    display: flex;
+    align-items: center;
+    gap: 2.5mm;
+  }
+  
+  .feature-dot {
+    width: 2mm;
+    height: 2mm;
+    border-radius: 50%;
+    background: #4F8C82;
+    flex-shrink: 0;
+  }
+  
+  .feature p {
+    font-size: 2.8mm;
+    color: #CCCCC3;
+    line-height: 1.3;
+  }
+  
+  /* Privacy section */
+  .privacy-box {
+    background: linear-gradient(135deg, rgba(217,142,59,0.06), rgba(79,140,130,0.03));
+    border: 1px solid rgba(217,142,59,0.15);
+    border-radius: 2.5mm;
+    padding: 3.5mm 4mm;
+    margin-bottom: 5mm;
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+  }
+  
+  .privacy-icon {
+    font-size: 6mm;
+    flex-shrink: 0;
+  }
+  
+  .privacy-text h3 {
+    font-size: 3.3mm;
+    font-weight: 600;
+    color: #D98E3B;
+    margin-bottom: 0.8mm;
+  }
+  
+  .privacy-text p {
+    font-size: 2.6mm;
+    color: #8B8E93;
+    line-height: 1.4;
+  }
+  
+  /* Bottom section */
+  .bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3mm;
+    margin-top: auto;
+    padding-top: 3mm;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+  
+  .deploy-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5mm;
+  }
+  
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+  }
+  
+  .step-num {
+    width: 4mm;
+    height: 4mm;
+    border-radius: 50%;
+    background: rgba(217,142,59,0.15);
+    color: #D98E3B;
+    font-size: 2.5mm;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .step p {
+    font-size: 2.6mm;
+    color: #CCCCC3;
+  }
+  
+  .contact-box {
+    background: rgba(217,142,59,0.06);
+    border-radius: 2mm;
+    padding: 3mm;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .contact-box h4 {
+    font-size: 3.3mm;
+    font-weight: 600;
+    color: #D98E3B;
+    margin-bottom: 1.5mm;
+  }
+  
+  .contact-box p {
+    font-size: 2.6mm;
+    color: #8B8E93;
+    margin-bottom: 0.5mm;
+  }
+  
+  .contact-box .email {
+    font-size: 3mm;
+    font-weight: 500;
+    color: #EDEAE3;
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding-top: 2.5mm;
+    font-size: 2.3mm;
+    color: #4A4D52;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="accent-bar"></div>
+  
+  <!-- Header -->
+  <div class="header">
+    <div class="logo-area">
+      <div class="logo-icon">🛡️</div>
+      <div class="logo-text">
+        <div class="logo-name">The Dark <span>Guardian</span></div>
+        <div class="logo-tagline">First Responder Mental Wellness</div>
+      </div>
+    </div>
+    <div class="badge">FREE FOR AGENCIES</div>
+  </div>
+  
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Wellness that respects <span>the code of silence</span></h1>
+    <p>A private, zero-account mental wellness toolkit built specifically for first responders. Breathing exercises, grounding protocols, crisis hotline directory, and anonymous mood check-ins — all on-device, no login, no data leaves the device.</p>
+  </div>
+  
+  <!-- Three Pillars -->
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-icon">🔒</div>
+      <h3>Zero Data Collection</h3>
+      <p>No accounts, no servers, no telemetry. Everything runs entirely on the device. We cannot see what you do.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">⚡</div>
+      <h3>Instant Access</h3>
+      <p>No login, no download, no app store. Open the link and use it immediately. Works on any phone or browser.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🤝</div>
+      <h3>CISM-Recommended</h3>
+      <p>Built for CISM teams to deploy. A force multiplier your team can recommend with complete confidence.</p>
+    </div>
+  </div>
+  
+  <!-- Features -->
+  <div class="features">
+    <div class="feature">
+      <div class="feature-dot"></div>
+      <p>Box Breathing & 4-7-8 Breathing exercises</p>
+    </div>
+    <div class="feature">
+      <div class="feature-dot"></div>
+      <p>5-4-3-2-1 Grounding protocol</p>
+    </div>
+    <div class="feature">
+      <div class="feature-dot"></div>
+      <p>Post-Call Decompression protocol</p>
+    </div>
+    <div class="feature">
+      <div class="feature-dot"></div>
+      <p>Shift-Sleep Reset & Cognitive Reframe tools</p>
+    </div>
+    <div class="feature">
+      <div class="feature-dot"></div>
+      <p>Pre-Shift Tactical Reset for mindset readiness</p>
+    </div>
+    <div class="feature">
+      <div class="feature-dot"></div>
+      <p>24/7 Crisis Hotline Directory (national & peer-support)</p>
+    </div>
+    <div class="feature">
+      <div class="feature-dot"></div>
+      <p>Anonymous mood check-ins with session history</p>
+    </div>
+    <div class="feature">
+      <div class="feature-dot"></div>
+      <p>Searchable resources directory</p>
+    </div>
+  </div>
+  
+  <!-- Privacy Guarantee -->
+  <div class="privacy-box">
+    <div class="privacy-icon">🛡️</div>
+    <div class="privacy-text">
+      <h3>Privacy by design — built for a culture of trust</h3>
+      <p>No accounts. No login. No tracking SDKs. No cookies. No fingerprinting. No data ever leaves the device. Zero data collection means zero liability for your department — no FOIA exposure, no court challenges, no privacy concerns. Your people will use this because they know it asks nothing of them.</p>
+    </div>
+  </div>
+  
+  <!-- Bottom: Deploy Steps + Contact -->
+  <div class="bottom">
+    <div>
+      <h4 style="font-size:3mm;font-weight:600;margin-bottom:2mm;color:#D98E3B;">How to Deploy</h4>
+      <div class="deploy-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <p>Contact us — we'll set up a private deployment link for your agency</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <p>Share the link with your personnel — no download, no account required</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <p>Use it anonymously — all tools run on-device, zero data transmission</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <p>Optional: anonymized aggregate trends for department leadership (opt-in only)</p>
+        </div>
+      </div>
+    </div>
+    <div class="contact-box">
+      <h4>Bring The Dark Guardian to Your Agency</h4>
+      <p>No cost. No commitment. No catch.</p>
+      <p class="email" style="margin-top:1.5mm;">DarkGuardianAdmin@protonmail.com</p>
+      <p style="margin-top:1mm;">(800) 555-0199</p>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <div class="footer">
+    The Dark Guardian · watchstand.vercel.app · Built for the people who show up.
+  </div>
+</div>
+</body>
+</html>

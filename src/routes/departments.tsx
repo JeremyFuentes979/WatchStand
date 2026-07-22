@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Shield, Lock, Users, Building, CheckCircle, HeartHandshake, Phone, ArrowRight } from "lucide-react";
+import { Lock, Building, CheckCircle, HeartHandshake, Phone, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/departments")({
   component: Departments,
@@ -91,6 +91,14 @@ function Departments() {
               <span><strong>Privacy guaranteed</strong> — No data collection means no liability for your department, no risk for your people.</span>
             </li>
           </ul>
+          <div className="mt-4 pt-3 border-t border-white/5 flex flex-col gap-2">
+            <Link to="/cism-signup" className="text-sm text-[var(--amber)] underline hover:text-[var(--amber)]/80">
+              Join our CISM network →
+            </Link>
+            <Link to="/cism-finder" className="text-sm text-[var(--teal)] underline hover:text-[var(--teal)]/80">
+              Find CISM teams near you →
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -145,7 +153,7 @@ function Departments() {
             We're building relationships with CISM teams and departments. Reach out and we'll get you set up — no cost, no commitment, no catch.
           </p>
           <div className="flex flex-col gap-3">
-            <a href="mailto:deployments@watchstand.app" className="btn-amber inline-flex items-center justify-center gap-2">
+            <a href="mailto:DarkGuardianAdmin@protonmail.com" className="btn-amber inline-flex items-center justify-center gap-2">
               <ArrowRight size={18} />
               Contact us
             </a>
